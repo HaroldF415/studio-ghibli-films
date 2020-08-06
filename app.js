@@ -4,21 +4,26 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const https = require("https");
 const fetch = require("node-fetch");
+const ejs = require("ejs");
 
 const app = express();
 
+app.set('view engine', 'ejs');
+
 app.use(bodyParser.urlencoded({extended: true}));
+
+app.use(express.static('public'));
 
 const baseURL = "https://ghibliapi.herokuapp.com";
 
 
 app.get("/", function(req, res){
 
-
+  res.render("home");
 
 }); // ends app.get()
 
-app.post("/", function(req, res){
+app.get("/getFilms", function(req, res){
 
   const getAllFilms = (pos) =>{
     return fetch(
