@@ -8,6 +8,8 @@ const ejs = require("ejs");
 
 const app = express();
 
+let titleArray = [];
+
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({extended: true}));
@@ -31,14 +33,19 @@ app.get("/getFilms", function(req, res){
       {method: 'GET'}
     )
     .then( response => response.json() )
-    .then( films =>  films.forEach( function(obj){
-      console.log(obj.title);
+    .then( films =>  films.forEach( function(film){
+      console.log(film.title);
     }
     ) )
     .catch( error => console.error('error:', error) );
   };
 
-  console.log( getAllFilms() );
+  const titleArray = getAllFilms();
+  res.render("getFilms", {renderedTitles: titleArray});
+
+  // When I run GET on POSTMAN and console.log these lines of code it works
+  // But how do I use what these functions return
+  // console.log( getAllFilms() );
   // console.log( getPeople() );
   //console.log( getSpecies() );
 
