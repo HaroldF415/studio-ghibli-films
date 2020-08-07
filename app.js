@@ -45,7 +45,7 @@ app.get("/getFilms", function(req, res){
 
   // When I run GET on POSTMAN and console.log these lines of code it works
   // But how do I use what these functions return
-  // console.log( getAllFilms() );
+  console.log( getAllFilms() );
   // console.log( getPeople() );
   //console.log( getSpecies() );
 
