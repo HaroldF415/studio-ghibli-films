@@ -25,22 +25,16 @@ app.get("/", function(req, res){
 
 }); // ends app.get()
 
-app.get("/getFilms", function(req, res){
+app.get("/getFilms", async function(req, res){
 
-  const getAllFilms = (pos) =>{
-    return fetch(
-      baseURL + '/films',
-      {method: 'GET'}
-    )
-    .then( response => response.json() )
-    .then( films =>  films.forEach( function(film){
-      console.log(film.title);
-    }
-    ) )
-    .catch( error => console.error('error:', error) );
+  const getAllFilms = async (pos) =>{
+    const response = await fetch(baseURL + '/films', {method: 'GET'})
+        .catch(error => console.error('error:', error));
+
+    return await response.json();
   };
 
-  const titleArray = getAllFilms();
+  let titleArray = (await getAllFilms()).map(film => film.title);
   res.render("getFilms", {renderedTitles: titleArray});
 
   // When I run GET on POSTMAN and console.log these lines of code it works
