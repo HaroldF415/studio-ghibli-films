@@ -8,7 +8,7 @@ const ejs = require("ejs");
 
 const app = express();
 
-let titleArray = [];
+let pageTitle = "";
 
 app.set('view engine', 'ejs');
 
@@ -21,11 +21,15 @@ const baseURL = "https://ghibliapi.herokuapp.com";
 
 app.get("/", function(req, res){
 
-  res.render("home");
+  pageTitle = "home";
+
+  res.render("home", {renPageTitle: pageTitle});
 
 }); // ends app.get()
 
 app.get("/getFilms", async function(req, res){
+
+  pageTitle = "getFilms";
 
   const getAllFilms = async (pos) =>{
     const response = await fetch(baseURL + '/films', {method: 'GET'})
@@ -35,7 +39,7 @@ app.get("/getFilms", async function(req, res){
   };
 
   const ghibliFilms = ( await getAllFilms() );
-  res.render("getFilms", {renGhibliFilms: ghibliFilms});
+  res.render("getFilms", {renGhibliFilms: ghibliFilms, renPageTitle: pageTitle});
 
 });
 

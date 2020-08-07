@@ -1,11 +1,17 @@
 <%- include("partials/header") -%>
 
-<h1>Studio Ghibli Films</h1>
+<!-- This to track what page we are on and add the .active to the menu links -->
+<span class="d-none"> <%= renPageTitle %> </span>
 
-<% renGhibliFilms.forEach((film) => { %>
-  <h3> <%= film.title %> </h3>
-  <p> <%= film.description %> </p>
-  <p> <%= film.director %> </p>
-<% }) %>
+<section id="film_container">
+  <h1>Studio Ghibli Films</h1>
+
+  <% renGhibliFilms.forEach((film) => { %>
+    <h3> <%= film.title %> </h3>
+    <p><%= film.description %> </p>
+    <p>Director: <%= film.director %> </p>
+  <% }) %>
+  
+</section>
 
 <%- include("partials/footer") -%>
