@@ -34,7 +34,7 @@ app.get("/getFilms", async function(req, res){
     return await response.json();
   };
 
-  let titleArray = (await getAllFilms()).map(film => film.title);
+  const titleArray = (await getAllFilms()).map(film => film.title);
   res.render("getFilms", {renderedTitles: titleArray});
 
   // When I run GET on POSTMAN and console.log these lines of code it works
