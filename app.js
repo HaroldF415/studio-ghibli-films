@@ -34,35 +34,10 @@ app.get("/getFilms", async function(req, res){
     return await response.json();
   };
 
-  const titleArray = (await getAllFilms()).map(film => film.title);
-  res.render("getFilms", {renderedTitles: titleArray});
+  // const titleArray = (await getAllFilms()).map(film => film.title);
+  const ghibliFilms = ( await getAllFilms() );
+  res.render("getFilms", {renGhibliFilms: ghibliFilms});
 
-  // When I run GET on POSTMAN and console.log these lines of code it works
-  // But how do I use what these functions return
-  console.log( getAllFilms() );
-  // console.log( getPeople() );
-  //console.log( getSpecies() );
-
-
-  const getPeople = (pos) =>{
-    return fetch(
-      baseURL + '/people',
-      {method: 'GET'}
-    )
-    .then( response => response.json() )
-    .then( people => console.log(people) )
-    .catch( error => console.error('error:', error) );
-  };
-
-  const getSpecies = (pos) =>{
-    return fetch(
-      baseURL + '/species',
-      {method: 'GET'}
-    )
-    .then( response => response.json() )
-    .then( species => console.log(species.length) )
-    .catch( error => console.error('error:', error) );
-  };
 });
 
 app.listen(3000, function(){

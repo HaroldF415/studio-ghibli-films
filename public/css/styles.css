@@ -1,0 +1,10 @@
+body {
+  background-color: #0b88a8;
+  color: #ebecf1;
+  font-family: 'Cabin', sans-serif;
+  font-weight: 500;
+}
+
+.main_container {
+  text-align: center;
+}

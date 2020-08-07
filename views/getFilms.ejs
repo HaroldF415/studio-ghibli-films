@@ -1,6 +1,11 @@
 <%- include("partials/header") -%>
 
-<h1> <%= renderedTitles %> </h1>
+<h1>Studio Ghibli Films</h1>
 
+<% renGhibliFilms.forEach((film) => { %>
+  <h3> <%= film.title %> </h3>
+  <p> <%= film.description %> </p>
+  <p> <%= film.director %> </p>
+<% }) %>
 
 <%- include("partials/footer") -%>
