@@ -5,9 +5,29 @@
   <meta charset="utf-8">
   <title>Studio-Ghibli Films</title>
   <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Temporally using BootstrapCDN to style my project will move to installing Bootstrap with npm later on -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  
   <link rel="icon" href="/images/favicon.ico">
   <link rel="stylesheet" href="/css/styles.css">
   <!-- ITC  Avant Garde Gothic is the font used for Studio Ghibli -->
 </head>
 
 <body>
+  <!-- .navbar-dark: will set the color of the text to light. This is used when using the class bg-dark -->
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Studio Ghibli</a>
+    <!-- This toggle-button will show up when the screen reaches a certain breakpoint -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+       <div class="navbar-nav">
+        <a class="nav-link active" href="/">Home<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/getFilms">Films</a>
+       </div>
+     </div>
+
+  </nav>

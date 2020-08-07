@@ -34,7 +34,6 @@ app.get("/getFilms", async function(req, res){
     return await response.json();
   };
 
-  // const titleArray = (await getAllFilms()).map(film => film.title);
   const ghibliFilms = ( await getAllFilms() );
   res.render("getFilms", {renGhibliFilms: ghibliFilms});
 
